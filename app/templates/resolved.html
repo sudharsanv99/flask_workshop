@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+{% block content %}
+<h3>Resolved Problems</h3>
+<p> The resolved tickets are: </p>
+    {% for tickets in completed %}
+<p> {{tickets}} <br>
+    {% endfor %}
+
+{% endblock %}

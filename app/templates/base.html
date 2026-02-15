@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}CS Robotics Club{% endblock %}</title>
+</head>
+<body>
+    <header>
+        <h1>CS Labs - Helpdesk & Bookings</h1>
+        <nav>
+            <a href="{{ url_for('index') }}">Home    |</a>
+            <a href="{{ url_for('login') }}">Login    |</a>
+            <a href="{{ url_for('ticket') }}">Submit a ticket    |</a>
+            <a href="{{ url_for('labs') }}">Request a lab slot    |</a>
+            <a href="{{ url_for('listing') }}">Admin to resolve tickets</a>
+        </nav>
+    </header>
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer>
+        <hr>
+        <p>&copy; 2026 School of Computer Science</p>
+    </footer>
+</body>
+</html>

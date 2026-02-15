@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h3>Choose a lab timeslot</h3>
+<form action="/labs" method="post">
+    <label for="username">Username:</label>
+    <input type="text" id="username" name="username"><br>
+
+    <select name="lab_timings">
+        {% for time in times %}
+        <option value="{{time}}"> {{time}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type ="submit">Submit</button>
+
+
+</form>
+{% endblock %}

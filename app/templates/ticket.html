@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %} Tickets {% endblock %}
+{% block content %}
+<h3> Raise a ticket</h3>
+<form action = "/ticket" method="post">
+    <label for="username" >Username:</label>
+    <input type="text" id="username" name="username"><br><br>
+    <select name = "problem_to_be_resolved" id="problem_to_be_resolved">
+        {% for ticket in ticket_list %}
+        <option value="{{ticket}}">{{ticket}}</option>
+        {% endfor %}
+    </select>
+    <br><br>
+    <button type="submit">Submit</button>
+
+</form>
+{% endblock %}
