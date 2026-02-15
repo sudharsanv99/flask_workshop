@@ -15,7 +15,10 @@ def login():
     global current_login
     if request.method == "POST":
         current_login = request.form.get("username")
-        return render_template("confirmation.html", current_login = current_login)
+        message_title = "Confirming Login"
+        message_body = f"The user {current_login} has successfully logged on !!"
+        return render_template("confirmation_message_common.html",
+                               message_title = message_title, message_body = message_body)
     return render_template("login.html")
 
 @app.route("/ticket", methods = ["GET", "POST"])
@@ -31,7 +34,10 @@ def ticket():
         )
         with open(file_path, "a") as file:
             file.write(f"{current_login} | {ticket} | {today_date} \n")
-        return render_template("ticket_confirm.html", current_login = current_login, date = today_date)
+        message_title = "Ticket booking confirmation"
+        message_body = f"Thank you for raising a ticket {current_login} at {today_date}- your problem will be resolved soon"
+        return render_template("confirmation_message_common.html",
+                               message_title = message_title, message_body = message_body)
     return render_template("ticket.html",ticket_list = tickets)
 
 
